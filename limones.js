@@ -116,7 +116,7 @@ function restarTiempo(){
        finalizarJuego("Se acabo el tiempo")    
     }
 }
-function finalizarJuego (mensaje){
+function finalizarJuego (){
     clearInterval(detenerJ);
     clearInterval(intervaloTiempo);
     alert("GAME OVER! " + " Puntaje final: " + puntaje);
