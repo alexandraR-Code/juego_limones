@@ -1,38 +1,60 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
-  <title>Caza Estrellas</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Atrapar Limones - Movilis Edition</title>
   <link rel="stylesheet" href="limones.css">
- 
- 
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600&display=swap" rel="stylesheet">
 </head>
 <body onload="iniciarJuego();">
+
   <div class="contenedor">
-    <h1>Atrapar Limones</h1>
-    <p>Si del cielo te caen limones ..... </p>
-    <p>Aprende hacer limonada</p>
-    <h2>Autor: Alexandra Ramírez</h2>
-    <canvas id="areaJuego" width="600" height="400"></canvas>
-    
-    <div class="panel">
-      <p>Puntaje: <span id="txtPuntaje">0</span></p>
-      <p>Vidas: <span id="txtVidas">3</span></p>
-
+    <div class="header-logo">
+      <img src="LOGO FULL.png" alt="Logo Movilis" class="logo-movilis">
     </div>
-    <div class="botones">
-      <button onclick="moverIzquierda();">Izquierda</button>
-      <button onclick="moverDerecha();">Derecha</button>
-      <div class="rei">
-      <button onclick="reiniciarJuego();">Reiniciar</button>
-    <div class="panel">
-      <span>Tiempo: <span id="txtTiempo">10</span>
 
-    </div>  
-    </div>
+    <header>
+      <h1>Atrapar Limones</h1>
+      <div class="frase">
+        <p>"Si del cielo te caen limones... aprende a hacer limonada"</p>
+      </div>
+      <p class="author">Autor: <span>Alexandra Ramírez</span></p>
+    </header>
+
+    <div class="main-layout">
+      <div class="game-area">
+        <canvas id="areaJuego" width="600" height="400"></canvas>
+      </div>
+
+      <aside class="sidebar">
+        <div class="stats-card">
+          <div class="stat-item">
+            <small>PUNTAJE</small>
+            <span id="txtPuntaje">0</span>
+          </div>
+          <div class="stat-item">
+            <small>VIDAS</small>
+            <span id="txtVidas">3</span>
+          </div>
+          <div class="stat-item">
+            <small>TIEMPO</small>
+            <span id="txtTiempo">30</span>
+          </div>
+        </div>
+
+        <div class="controles">
+          <div class="flechas">
+            <button class="btn-control" onclick="moverIzquierda();">◀ Izquierda</button>
+            <button class="btn-control" onclick="moverDerecha();">Derecha ▶</button>
+          </div>
+          <button class="btn-reiniciar" onclick="reiniciarJuego();">REINICIAR</button>
+        </div>
+      </aside>
     </div>
   </div>
-  <script src="limones.js"></script>
-  <script  src="utils.js"></script>
 
+  <script src="utils.js"></script>
+  <script src="limones.js"></script>
 </body>
 </html>
