@@ -1,136 +1,162 @@
+/* Paleta de colores Aesthetic Movilis */
 :root {
-  --morado-movilis: #800080;
-  --amarillo-movilis: #ffff00;
-  --fondo-oscuro: #0f172a;
-  --blanco: #ffffff;
+  --movilis-purple: #800080;
+  --movilis-yellow: #fdfd96; /* Amarillo pastel */
+  --soft-pink: #ffe5ec;
+  --text-color: #4a4a4a;
+  --white: #ffffff;
 }
 
 body {
-  font-family: 'Fredoka', sans-serif;
-  background-color: var(--blanco);
-  color: var(--fondo-oscuro);
   margin: 0;
-  padding: 20px;
+  padding: 0;
+  font-family: 'Fredoka', sans-serif;
+  background: linear-gradient(135deg, var(--soft-pink) 0%, #e0c3fc 100%);
   display: flex;
   justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  color: var(--text-color);
 }
 
-.contenedor {
-  max-width: 900px;
-  background: rgba(255, 255, 255, 0.05);
-  padding: 30px;
+.glass-container {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(10px);
   border-radius: 40px;
-  border: 2px solid rgba(255, 255, 255, 0.1);
+  padding: 40px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1);
+  border: 2px solid var(--white);
+  max-width: 950px;
+  width: 90%;
+  text-align: center;
 }
 
-/* --- LOGO --- */
-.header-logo {
-  margin-bottom: 20px;
-}
-
-.logo-movilis {
-  max-width: 250px;
-  height: auto;
-  border-radius: 10px;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+/* --- HEADER --- */
+.brand-logo {
+  max-width: 200px;
+  border-radius: 12px;
+  margin-bottom: 10px;
 }
 
 h1 {
-  font-size: 2.5rem;
-  color: var(--amarillo-movilis);
   margin: 10px 0;
-  text-transform: uppercase;
-  letter-spacing: 2px;
+  font-size: 2.5rem;
+  color: var(--movilis-purple);
+  letter-spacing: -1px;
 }
 
-.frase p {
+.motto {
   font-style: italic;
-  color: var(--blanco);
   opacity: 0.8;
+  margin-bottom: 5px;
 }
 
 .author span {
-  color: var(--amarillo-movilis);
-  font-weight: bold;
+  font-weight: 600;
+  color: var(--movilis-purple);
 }
 
-/* --- DISTRIBUCIÓN --- */
-.main-layout {
+/* --- LAYOUT --- */
+.game-layout {
   display: flex;
   gap: 30px;
+  justify-content: center;
+  align-items: flex-start;
+  flex-wrap: wrap;
   margin-top: 20px;
-  align-items: center;
+}
+
+/* --- CANVAS --- */
+.canvas-wrapper {
+  position: relative;
+  background: var(--white);
+  padding: 10px;
+  border-radius: 30px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
 }
 
 canvas {
-  background-color: #000;
-  border: 6px solid var(--morado-movilis);
+  background-color: #fcfaff;
   border-radius: 20px;
-  box-shadow: 0 0 20px rgba(128, 0, 128, 0.4);
+  display: block;
+  border: 4px solid var(--movilis-purple);
 }
 
-/* --- PANEL LATERAL --- */
-.sidebar {
+/* --- PANEL DE STATS --- */
+.game-panel {
   display: flex;
   flex-direction: column;
   gap: 20px;
-  min-width: 200px;
+  min-width: 220px;
 }
 
-.stats-card {
-  background: var(--morado-movilis);
-  padding: 20px;
-  border-radius: 25px;
-  box-shadow: inset 0 0 10px rgba(0,0,0,0.2);
+.stats-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
 }
 
-.stat-item {
+.stat-card {
+  background: var(--white);
+  padding: 15px;
+  border-radius: 20px;
+  border: 2px solid #f0f0f0;
+  transition: transform 0.2s;
+}
+
+.stat-card:hover { transform: translateY(-3px); }
+
+.stat-card small {
+  display: block;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #aaa;
+  margin-bottom: 5px;
+}
+
+.stat-card span {
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: var(--movilis-purple);
+}
+
+/* --- CONTROLES --- */
+.d-pad {
+  display: flex;
+  gap: 10px;
   margin-bottom: 15px;
 }
 
-.stat-item:last-child { margin-bottom: 0; }
-
-.stat-item small {
-  display: block;
-  font-size: 0.7rem;
-  color: var(--amarillo-movilis);
-  font-weight: bold;
-}
-
-.stat-item span {
-  font-size: 2rem;
-  font-weight: bold;
-}
-
-/* --- BOTONES --- */
-.btn-control {
-  background: var(--blanco);
-  border: none;
-  padding: 12px 15px;
-  margin: 5px;
-  border-radius: 15px;
-  font-weight: bold;
-  cursor: pointer;
-  transition: transform 0.1s;
-  width: 100%;
-}
-
-.btn-control:active { transform: scale(0.95); }
-
-.btn-reiniciar {
-  background: #22c55e;
-  color: white;
-  border: none;
+.btn-move {
+  flex: 1;
   padding: 15px;
-  width: 100%;
+  border: none;
+  background: var(--movilis-yellow);
   border-radius: 15px;
-  font-weight: bold;
+  font-size: 1.2rem;
   cursor: pointer;
-  margin-top: 10px;
-  box-shadow: 0 4px 0px #166534;
+  box-shadow: 0 5px 0px #e6e600;
+  transition: all 0.1s;
 }
 
-.btn-reiniciar:active {
+.btn-move:active {
   transform: translateY(4px);
-  box-shadow: none;
+  box-shadow: 0 1px 0px #e6e600;
+}
+
+.btn-reset {
+  width: 100%;
+  padding: 15px;
+  border: none;
+  background: var(--movilis-purple);
+  color: var(--white);
+  border-radius: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 5px 0px #4d004d;
+}
+
+.btn-reset:active {
+  transform: translateY(4px);
+  box-shadow: 0 1px 0px #4d004d;
 }

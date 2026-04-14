@@ -9,49 +9,49 @@
 </head>
 <body onload="iniciarJuego();">
 
-  <div class="contenedor">
-    <div class="header-logo">
-      <img src="LOGO FULL.png" alt="Logo Movilis" class="logo-movilis">
-    </div>
-
-    <header>
+  <div class="glass-container">
+    <header class="game-header">
+      <img src="LOGO FULL.png" alt="Logo Movilis" class="brand-logo">
       <h1>Atrapar Limones</h1>
-      <div class="frase">
+      <div class="motto">
         <p>"Si del cielo te caen limones... aprende a hacer limonada"</p>
       </div>
-      <p class="author">Autor: <span>Alexandra Ramírez</span></p>
+      <p class="author">By: <span>Alexandra Ramírez</span></p>
     </header>
 
-    <div class="main-layout">
-      <div class="game-area">
+    <main class="game-layout">
+      <section class="canvas-wrapper">
         <canvas id="areaJuego" width="600" height="400"></canvas>
-      </div>
+        <div id="game-overlay">
+          <p id="mensaje-flotante"></p>
+        </div>
+      </section>
 
-      <aside class="sidebar">
-        <div class="stats-card">
-          <div class="stat-item">
-            <small>PUNTAJE</small>
+      <aside class="game-panel">
+        <div class="stats-grid">
+          <div class="stat-card score">
+            <small>PUNTOS</small>
             <span id="txtPuntaje">0</span>
           </div>
-          <div class="stat-item">
+          <div class="stat-card lives">
             <small>VIDAS</small>
             <span id="txtVidas">3</span>
           </div>
-          <div class="stat-item">
+          <div class="stat-card timer">
             <small>TIEMPO</small>
             <span id="txtTiempo">30</span>
           </div>
         </div>
 
-        <div class="controles">
-          <div class="flechas">
-            <button class="btn-control" onclick="moverIzquierda();">◀ Izquierda</button>
-            <button class="btn-control" onclick="moverDerecha();">Derecha ▶</button>
+        <div class="controls-section">
+          <div class="d-pad">
+            <button class="btn-move" onclick="moverIzquierda();">◀</button>
+            <button class="btn-move" onclick="moverDerecha();">▶</button>
           </div>
-          <button class="btn-reiniciar" onclick="reiniciarJuego();">REINICIAR</button>
+          <button class="btn-reset" onclick="reiniciarJuego();">REINICIAR</button>
         </div>
       </aside>
-    </div>
+    </main>
   </div>
 
   <script src="utils.js"></script>
