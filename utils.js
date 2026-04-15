@@ -12,3 +12,4 @@ function mostrarEnSpan(idSpan, valor){
     let componente = document.getElementById(idSpan);
     componente.textContent = valor;
 }
+
