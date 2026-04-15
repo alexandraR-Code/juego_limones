@@ -5,55 +5,79 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Atrapar Limones - Movilis Edition</title>
   <link rel="stylesheet" href="limones.css">
-  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
 <body onload="iniciarJuego();">
 
-  <div class="glass-container">
+  <div class="bg-blob"></div>
+
+  <div class="main-wrapper">
     <header class="game-header">
-      <img src="LOGO FULL.png" alt="Logo Movilis" class="brand-logo">
-      <h1>Atrapar Limones</h1>
-      <div class="motto">
-        <p>"Si del cielo te caen limones... aprende a hacer limonada"</p>
+      <div class="brand-section">
+        <img src="LOGO FULL.png" alt="Logo Movilis" class="brand-logo">
       </div>
-      <p class="author">By: <span>Alexandra Ramírez</span></p>
+      <div class="title-section">
+        <h1>Atrapar Limones</h1>
+        <p class="motto">"Si del cielo te caen limones... aprende a hacer limonada"</p>
+      </div>
     </header>
 
-    <main class="game-layout">
-      <section class="canvas-wrapper">
-        <canvas id="areaJuego" width="600" height="400"></canvas>
-        <div id="game-overlay">
-          <p id="mensaje-flotante"></p>
-        </div>
-      </section>
-
-      <aside class="game-panel">
-        <div class="stats-grid">
-          <div class="stat-card score">
+    <main class="game-container">
+      <aside class="stats-panel">
+        <div class="stat-card score-card">
+          <span class="icon">⭐</span>
+          <div class="stat-info">
             <small>PUNTOS</small>
             <span id="txtPuntaje">0</span>
           </div>
-          <div class="stat-card lives">
+        </div>
+        <div class="stat-card lives-card">
+          <span class="icon">❤️</span>
+          <div class="stat-info">
             <small>VIDAS</small>
             <span id="txtVidas">3</span>
           </div>
-          <div class="stat-card timer">
+        </div>
+        <div class="stat-card timer-card">
+          <span class="icon">⏱️</span>
+          <div class="stat-info">
             <small>TIEMPO</small>
             <span id="txtTiempo">30</span>
           </div>
         </div>
+      </aside>
 
-        <div class="controls-section">
-          <div class="d-pad">
-            <button class="btn-move" onclick="moverIzquierda();">◀</button>
-            <button class="btn-move" onclick="moverDerecha();">▶</button>
+      <section class="canvas-area">
+        <div class="canvas-border">
+          <canvas id="areaJuego" width="600" height="400"></canvas>
+          <div id="game-overlay">
+            <p id="mensaje-flotante"></p>
           </div>
-          <button class="btn-reset" onclick="reiniciarJuego();">REINICIAR</button>
         </div>
+      </section>
+
+      <aside class="controls-panel">
+        <div class="d-pad">
+          <button class="btn-action btn-move" onclick="moverIzquierda();" aria-label="Izquierda">◀</button>
+          <button class="btn-action btn-move" onclick="moverDerecha();" aria-label="Derecha">▶</button>
+        </div>
+        <button class="btn-action btn-reset" onclick="reiniciarJuego();">
+          REINICIAR JUEGO
+        </button>
+        <p class="author-tag">By: <span>Alexandra Ramírez</span></p>
       </aside>
     </main>
   </div>
 
+  <script>
+    function generarAleatorio(min, max) {
+      let random = Math.random();
+      let numero = random * (max - min);
+      let numeroEntero = parseInt(numero);
+      numeroEntero = numeroEntero + min;
+      return numeroEntero;
+    }
+  </script>
   <script src="utils.js"></script>
   <script src="limones.js"></script>
 </body>
